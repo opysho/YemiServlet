@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>YemiServlet</display-name>
+  
+  <servlet>
+  <servlet-name>registerNew</servlet-name>
+  <servlet-class>za.co.fnb.RegisterServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  
+  <servlet-name>registerNew</servlet-name>
+  <url-pattern>/registerform.html</url-pattern>
+  
+  </servlet-mapping>
+  
+  
+  <servlet>
+  <servlet-name>registerComplete</servlet-name>
+  <servlet-class>za.co.fnb.RegisterInDatabaseServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  
+  <servlet-name>registerComplete</servlet-name>
+  <url-pattern>/registercomplete.html</url-pattern>
+  
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>home</servlet-name>
+  <servlet-class>za.co.fnb.HomePageServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  
+  <servlet-name>home</servlet-name>
+  <url-pattern>/frontPage.html</url-pattern>
+  
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>log</servlet-name>
+  <servlet-class>za.co.fnb.LoginAccessServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>log</servlet-name>
+  <url-pattern>/logging.html</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>logging</servlet-name>
+  <servlet-class>za.co.fnb.LoginServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>logging</servlet-name>
+  <url-pattern>/login.html</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>logTwo</servlet-name>
+  <servlet-class>za.co.fnb.StudentInfoServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>logTwo</servlet-name>
+  <url-pattern>/studentInfo.html</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>IncorrectNum</servlet-name>
+  <servlet-class>za.co.fnb.MenuListServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>IncorrectNum</servlet-name>
+  <url-pattern>/returnToMenu.html</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>resultUpdate</servlet-name>
+  <servlet-class>za.co.fnb.ResultServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>resultUpdate</servlet-name>
+  <url-pattern>/updateResult.html</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>resultInDatabase</servlet-name>
+  <servlet-class>za.co.fnb.ResultInDatabaseServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>resultInDatabase</servlet-name>
+  <url-pattern>/resultInputted.html</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+  <servlet-name>fetchResult</servlet-name>
+  <servlet-class>za.co.fnb.FetchResultServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>fetchResult</servlet-name>
+  <url-pattern>/studentResult.html</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+  <servlet-name>others</servlet-name>
+  <servlet-class>za.co.fnb.OtherInfoServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>others</servlet-name>
+  <url-pattern>/checkInfo.html</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+  <servlet-name>feeUpdate</servlet-name>
+  <servlet-class>za.co.fnb.FeeServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>feeUpdate</servlet-name>
+  <url-pattern>/updateFees.html</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+  <servlet-name>feeInDatabase</servlet-name>
+  <servlet-class>za.co.fnb.FeeInDatabaseServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>feeInDatabase</servlet-name>
+  <url-pattern>/feeInputted.html</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+  <servlet-name>fetchInfo</servlet-name>
+  <servlet-class>za.co.fnb.FeesInfoServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>fetchInfo</servlet-name>
+  <url-pattern>/checkFees.html</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
