@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import za.co.fnb.Result.Result;
+
 public class ResultInDatabaseServlet extends HttpServlet{
 
 	
@@ -18,6 +20,8 @@ public class ResultInDatabaseServlet extends HttpServlet{
 	}
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) {
+
+		Result result = new Result();
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -31,8 +35,10 @@ public class ResultInDatabaseServlet extends HttpServlet{
 			double assignment = Double.parseDouble(req.getParameter("assignment"));
 			double test = Double.parseDouble(req.getParameter("test"));
 			double exam = Double.parseDouble(req.getParameter("exam"));
-		
-			double average = (assignment + test + exam)/3;
+	
+			
+			double average = result.calculateAverage(assignment, test, exam);			
+
 			
 			System.out.println(average);						
 			String sql = "INSERT INTO Result (personal_number, subject_name, assignment, test, exam, average)"

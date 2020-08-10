@@ -105,7 +105,12 @@ public class Fee {
 				&& Objects.equals(purposeOfPayment, other.purposeOfPayment);
 	}
 
-	
+	public double calculateBalance(double amountInitial, double amountPaid) {
+		
+		double amountBalance = amountInitial - amountPaid;
+		
+		return amountBalance;
+	}
 
 	
 

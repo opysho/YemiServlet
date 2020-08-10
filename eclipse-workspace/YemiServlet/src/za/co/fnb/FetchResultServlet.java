@@ -40,7 +40,7 @@ public class FetchResultServlet extends HttpServlet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		}
+		}else {
 		
 		 try {
 			 req.setAttribute("personResult", resultInfoList);
@@ -52,4 +52,5 @@ public class FetchResultServlet extends HttpServlet {
 		}
 				
 	}
+}
 }

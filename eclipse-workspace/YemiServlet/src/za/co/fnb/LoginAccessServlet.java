@@ -13,7 +13,7 @@ import za.co.fnb.db.LoginDatabase;
 
 public class LoginAccessServlet extends HttpServlet{
 	
-protected void doGet(HttpServletRequest req, HttpServletResponse res) {
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) {
 		
 	}
 	
@@ -47,7 +47,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse res) {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		//System.out.println("Invalid Student number and password!!!!");
+		
 	}
 	
 	

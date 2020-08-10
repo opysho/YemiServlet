@@ -29,6 +29,7 @@ public class Result {
 
 	public Result() {
 		
+		
 	}
 	
 	
@@ -109,7 +110,15 @@ public class Result {
 				&& Objects.equals(subject, other.subject)
 				&& Double.doubleToLongBits(testMarks) == Double.doubleToLongBits(other.testMarks);
 	}
-
 	
+	
+	public double calculateAverage(double assignmentMarks, double testMarks,  double examinationMarks) {
+		
+		double average = (assignmentMarks + testMarks + examinationMarks)/3;
+		
+		return average;
+	}
+
+
 
 }
