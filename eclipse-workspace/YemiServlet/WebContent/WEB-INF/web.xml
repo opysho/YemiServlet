@@ -8,10 +8,8 @@
   </servlet>
   
   <servlet-mapping>
-  
   <servlet-name>registerNew</servlet-name>
   <url-pattern>/registerform.html</url-pattern>
-  
   </servlet-mapping>
   
   
@@ -21,10 +19,8 @@
   </servlet>
   
   <servlet-mapping>
-  
   <servlet-name>registerComplete</servlet-name>
   <url-pattern>/registercomplete.html</url-pattern>
-  
   </servlet-mapping>
   
   <servlet>
@@ -33,10 +29,8 @@
   </servlet>
   
   <servlet-mapping>
-  
   <servlet-name>home</servlet-name>
   <url-pattern>/frontPage.html</url-pattern>
-  
   </servlet-mapping>
   
   <servlet>

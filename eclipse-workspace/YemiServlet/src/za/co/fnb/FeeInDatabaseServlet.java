@@ -3,6 +3,7 @@ package za.co.fnb;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import za.co.fnb.Fee.Fee;
+import za.co.fnb.db.DatabaseConnection;
 
 public class FeeInDatabaseServlet extends HttpServlet {
 
@@ -24,12 +26,9 @@ public class FeeInDatabaseServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) {
 
 		//Fee fee = new Fee();
-		
+	
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			// "com.mysql.jdbc.Driver" this is the path
-			Connection c1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JavaEE", "root", "pvi@2020");
-			// here Pvi is database name, root is username and password
+			Connection c1 = DatabaseConnection.connection();
 			Statement st = c1.createStatement();
 
 			String personalNumber = req.getParameter("accessNumber");
@@ -45,7 +44,7 @@ public class FeeInDatabaseServlet extends HttpServlet {
 					+ amountPaid + "," + amountBalance + ")";
 
 			st.executeUpdate(sql);
-			c1.close();
+			DatabaseConnection.connectionClose(c1);
 		} catch (Exception ex) {
 			System.out.println(ex);
 		}
@@ -60,4 +59,8 @@ public class FeeInDatabaseServlet extends HttpServlet {
 		}
 
 	}
+
+	
+
+	
 }

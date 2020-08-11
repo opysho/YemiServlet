@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import za.co.fnb.Result.Result;
+import za.co.fnb.db.DatabaseConnection;
 
 public class ResultInDatabaseServlet extends HttpServlet{
 
@@ -24,10 +25,7 @@ public class ResultInDatabaseServlet extends HttpServlet{
 		Result result = new Result();
 		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//"com.mysql.jdbc.Driver" this is the path
-			Connection c1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JavaEE", "root", "pvi@2020");
-			//here Pvi is database name, root is username and password
+			Connection c1 = DatabaseConnection.connection();
 			Statement  st = c1.createStatement();
 			
 			String  personalNumber=  req.getParameter("accessNumber");
@@ -44,11 +42,8 @@ public class ResultInDatabaseServlet extends HttpServlet{
 			String sql = "INSERT INTO Result (personal_number, subject_name, assignment, test, exam, average)"
 			+ " VALUES ('" + personalNumber + "','" + subject + "'," + assignment + "," + test + "," + exam + "," + average +  ")"; 
 				
-			
-			
-			
 			st.executeUpdate(sql);
-			c1.close();
+			DatabaseConnection.connectionClose(c1);
 		}catch(Exception ex) {
 			System.out.println(ex);
 		}

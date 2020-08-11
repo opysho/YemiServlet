@@ -122,7 +122,7 @@
 <p><label>Grade applying for :</label>
 <input type="text" name ="gradeApplying" value = ""/>
 <br>
-<p><label>Subject 1 :</label>
+<label>Subject 1 :</label>
 <select name="subject1">
 	<option>Select</option>
 	<option value="English">English-101</option>
@@ -137,7 +137,7 @@
 	<option value="Commerce">Commerce-110</option>
 </select>
 <br>
-<p><label>Subject 2 :</label>
+<label>Subject 2 :</label>
 <select name="subject2">
 	<option>Select</option>
 	<option value="English">English-101</option>
@@ -152,7 +152,7 @@
 	<option value="Commerce">Commerce-110</option>
 </select>
 <br>
-<p><label>Subject 3 :</label>
+<label>Subject 3 :</label>
 <select name="subject3">
 	<option>Select</option>
 	<option value="English">English-101</option>
@@ -167,7 +167,7 @@
 	<option value="Commerce">Commerce-110</option>
 </select>
 <br>
-<p><label>Subject 4 :</label>
+<label>Subject 4 :</label>
 <select name="subject4">
 	<option>Select</option>
 	<option value="English">English-101</option>
@@ -182,7 +182,7 @@
 	<option value="Commerce">Commerce-110</option>
 </select>
 <br>
-<p><label>Subject 5 :</label>
+<label>Subject 5 :</label>
 <select name="subject5">
 	<option>Select</option>
 	<option value="English">English-101</option>

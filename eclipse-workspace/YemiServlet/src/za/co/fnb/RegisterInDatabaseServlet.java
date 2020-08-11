@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import za.co.fnb.db.DatabaseConnection;
+
 public class RegisterInDatabaseServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) {
@@ -18,10 +20,7 @@ public class RegisterInDatabaseServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//"com.mysql.jdbc.Driver" this is the path
-			Connection c1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JavaEE", "root", "pvi@2020");
-			//here Pvi is database name, root is username and password
+			Connection c1 = DatabaseConnection.connection();
 			Statement  st = c1.createStatement();
 			
 			String surname =  req.getParameter("surname");
@@ -30,7 +29,7 @@ public class RegisterInDatabaseServlet extends HttpServlet {
 			String year = req.getParameter("year");
 			String month = req.getParameter("month");
 			String day = req.getParameter("day");
-			String dateOfBirth = year + " - " + month + " - " + day;
+			String dateOfBirth = year + "/" + month + "/" + day;
 			int age = Integer.parseInt(req.getParameter("age"));
 			String sex = req.getParameter("sex");
 			String address = req.getParameter("address");
@@ -58,7 +57,7 @@ public class RegisterInDatabaseServlet extends HttpServlet {
 					guardianPhoneNumber + "','" + position + "','" + personalNumber + "','" + password + "')"; 
 				
 			st.executeUpdate(sql);
-			c1.close();
+			DatabaseConnection.connectionClose(c1);
 		}catch(Exception ex) {
 			System.out.println(ex);
 		}

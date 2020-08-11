@@ -22,11 +22,7 @@ public class FinancialInfoDb {
 	Fee fee = new Fee();
 	
 	try {	
-		Class.forName("com.mysql.jdbc.Driver");
-		// "com.mysql.jdbc.Driver" this is the path
-		Connection c1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JavaEE", "root",
-				"pvi@2020");
-		// here Pvi is database name, root is username and password
+		Connection c1 = DatabaseConnection.connection();
 		Statement st = c1.createStatement();
 
 
@@ -45,7 +41,7 @@ public class FinancialInfoDb {
 			list.add(fee);
 				
 		}
-		c1.close();
+		DatabaseConnection.connectionClose(c1);
 	} catch (InputMismatchException e) {
 		System.out.println("Invalid input");
 	} catch (Exception ex) {
