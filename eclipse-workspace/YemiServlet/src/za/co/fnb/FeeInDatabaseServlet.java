@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import za.co.fnb.Fee.Fee;
 import za.co.fnb.db.DatabaseConnection;
 
+@WebServlet(urlPatterns ="/feeInputted.html")
 public class FeeInDatabaseServlet extends HttpServlet {
 
 	Fee fee = new Fee();

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import za.co.fnb.People.Person;
 import za.co.fnb.db.CheckIfAccountOfficer;
 
+@WebServlet(urlPatterns ="/updateFees.html")
 public class FeeServlet extends HttpServlet{
 	
 	
