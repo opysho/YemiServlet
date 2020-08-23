@@ -2,18 +2,29 @@ package za.co.fnb.Result;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Result")
 public class Result {
 
-	
+	@Column(name = "personal_number")
 	private String examNumber;
+	@Id
+	@Column(name = "subject_name")
 	private String subject;
+	@Column(name = "assignment")
 	private double assignmentMarks;
+	@Column(name = "test")
 	private double testMarks;
+	@Column(name = "exam")
 	private double examinationMarks;
+	@Column(name = "average")
 	private double averageMarks;
 
-	
-	
 	public Result(String examNumber, String subject, double assignmentMarks, double testMarks, double examinationMarks,
 			double averageMarks) {
 		super();
@@ -25,14 +36,9 @@ public class Result {
 		this.averageMarks = averageMarks;
 	}
 
-
-
 	public Result() {
-		
-		
+
 	}
-	
-	
 
 	public String getExamNumber() {
 		return examNumber;
@@ -110,15 +116,12 @@ public class Result {
 				&& Objects.equals(subject, other.subject)
 				&& Double.doubleToLongBits(testMarks) == Double.doubleToLongBits(other.testMarks);
 	}
-	
-	
-	public double calculateAverage(double assignmentMarks, double testMarks,  double examinationMarks) {
-		
-		double average = (assignmentMarks + testMarks + examinationMarks)/3;
-		
+
+	public double calculateAverage(double assignmentMarks, double testMarks, double examinationMarks) {
+
+		double average = (assignmentMarks + testMarks + examinationMarks) / 3;
+
 		return average;
 	}
-
-
 
 }

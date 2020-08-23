@@ -8,15 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns ="/login.html")
-public class LoginServlet extends HttpServlet{
-	
-protected void doGet(HttpServletRequest req, HttpServletResponse res) {
-		
+@SuppressWarnings("serial")
+@WebServlet(urlPatterns = "/login.html")
+public class LoginServlet extends HttpServlet {
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) {
+
 	}
-	
-protected void doPost(HttpServletRequest req, HttpServletResponse res) {
-		
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) {
+
 		try {
 			req.getRequestDispatcher("Login.jsp").forward(req, res);
 		} catch (ServletException e) {
@@ -24,6 +27,6 @@ protected void doPost(HttpServletRequest req, HttpServletResponse res) {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 }

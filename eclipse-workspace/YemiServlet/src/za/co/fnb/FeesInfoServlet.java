@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import za.co.fnb.Fee.Fee;
 import za.co.fnb.db.FinancialInfoDb;
 
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns ="/checkFees.html")
 public class FeesInfoServlet extends HttpServlet {
 

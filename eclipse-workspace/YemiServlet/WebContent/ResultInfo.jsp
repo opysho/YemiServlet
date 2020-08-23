@@ -38,8 +38,5 @@ if(remark < 50.0){
 <input type= "submit" value = "Go back to menu.">
 </form>
 
-
-
-
 </body>
 </html>

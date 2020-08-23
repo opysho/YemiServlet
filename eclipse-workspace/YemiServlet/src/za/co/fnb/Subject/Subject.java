@@ -2,14 +2,28 @@ package za.co.fnb.Subject;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Subject")
 public class Subject {
+
+	@Id
+	@Column(name = "subject_name")
 	private String name;
+	@Column(name = "subject_code")
 	private int code;
 
 	public Subject(String name, int code) {
 		super();
 		this.name = name;
 		this.code = code;
+	}
+
+	public Subject() {
 	}
 
 	public String getName() {

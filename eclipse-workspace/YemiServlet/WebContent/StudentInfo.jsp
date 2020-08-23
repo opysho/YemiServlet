@@ -15,7 +15,8 @@
 
 <%
 List<Person> list = new ArrayList<>();
-list = (List<Person>)request.getAttribute("studentInfoList");
+ list = (List<Person>)request.getAttribute("studentInfoList");
+ 
 for(Person p : list){
 out.println("Surname : "+p.getSurname()+". ");
 out.println("First name : "+p.getFirstName()+". ");

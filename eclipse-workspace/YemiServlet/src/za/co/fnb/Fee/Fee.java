@@ -2,16 +2,31 @@ package za.co.fnb.Fee;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Fees")
 public class Fee {
 
+	@Id
+	@Column(name = "personal_number")
 	private String personalNumber;
+	@Column(name = "purpose_of_payment")
 	private String purposeOfPayment;
+	@Column(name = "date_of_payment")
 	private String dateOfPayment;
+	@Column(name = "amount")
 	private double initialAmount;
+	@Column(name = "amount_paid")
 	private double amountPaid;
+	@Column(name = "balance")
 	private double amountBalance;
 
-	public Fee(String personalNumber, String purposeOfPayment, String dateOfPayment, double initialAmount, double amountPaid, double amountBalance) {
+	public Fee(String personalNumber, String purposeOfPayment, String dateOfPayment, double initialAmount,
+			double amountPaid, double amountBalance) {
 		super();
 		this.personalNumber = personalNumber;
 		this.purposeOfPayment = purposeOfPayment;
@@ -24,9 +39,6 @@ public class Fee {
 	public Fee() {
 
 	}
-	
-	
-	
 
 	public String getPersonalNumber() {
 		return personalNumber;
@@ -106,12 +118,10 @@ public class Fee {
 	}
 
 	public double calculateBalance(double amountInitial, double amountPaid) {
-		
+
 		double amountBalance = amountInitial - amountPaid;
-		
+
 		return amountBalance;
 	}
-
-	
 
 }

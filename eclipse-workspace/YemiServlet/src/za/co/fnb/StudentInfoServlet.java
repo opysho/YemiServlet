@@ -12,48 +12,47 @@ import javax.servlet.http.HttpServletResponse;
 import za.co.fnb.People.Person;
 import za.co.fnb.db.StudentInfoDb;
 
-@WebServlet(urlPatterns ="/studentInfo.html")
-public class StudentInfoServlet  extends HttpServlet{
+@SuppressWarnings("serial")
+@WebServlet(urlPatterns = "/studentInfo.html")
+public class StudentInfoServlet extends HttpServlet {
 
-	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) {
-		
+
 	}
-	
+
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) {
-		
+
 		String accessNumber = req.getParameter("accessNumber");
-		
-		
-		List<Person> studentInfoList = StudentInfoDb.studentInfo(accessNumber);
-		
-		if(studentInfoList.isEmpty()) {
-		
+
+		boolean checkList = StudentInfoDb.checkIfStudent(accessNumber, "Student");
+
+		if (checkList == false) {
+
 			try {
-			String listEmpty = "Access number is invalid and doesn't belong to a student";
-		
-			req.setAttribute("listIsEmpty", listEmpty);
-		
-			req.getRequestDispatcher("InvalidStudentInfo.jsp").forward(req, res);
-		} catch (ServletException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+				String listEmpty = "Access number is invalid and doesn't belong to a student";
+
+				req.setAttribute("listIsEmpty", listEmpty);
+
+				req.getRequestDispatcher("InvalidStudentInfo.jsp").forward(req, res);
+			} catch (ServletException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			try {
+
+				List<Person> studentInfoList = StudentInfoDb.studentInfo(accessNumber);
+
+				req.setAttribute("studentInfoList", studentInfoList);
+				req.getRequestDispatcher("StudentInfo.jsp").forward(req, res);
+			} catch (ServletException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		}else {
-		try {
-			
-			req.setAttribute("studentInfoList", studentInfoList);
-			req.getRequestDispatcher("StudentInfo.jsp").forward(req, res);
-		} catch (ServletException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		}
-		
-		
+
 	}
-	
-	
+
 }

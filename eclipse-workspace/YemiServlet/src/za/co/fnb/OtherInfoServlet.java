@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import za.co.fnb.People.Person;
 import za.co.fnb.db.OtherInfoDb;
 
-@WebServlet(urlPatterns ="/checkInfo.html")
+@SuppressWarnings("serial")
+@WebServlet(urlPatterns = "/checkInfo.html")
 public class OtherInfoServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) {
@@ -20,28 +21,25 @@ public class OtherInfoServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) {
-		
+
 		String access = req.getParameter("accessNumber");
 
 		List<Person> otherInfo = OtherInfoDb.otherInfo(access);
-		
-		if(otherInfo.isEmpty()) {
-			try {
-			String listEmpty = "Access number is invalid, try again !!!";
-			
-		req.setAttribute("listIsEmpty", listEmpty);
 
-			
+		if (otherInfo.isEmpty()) {
+			try {
+				String listEmpty = "Access number is invalid, try again !!!";
+
+				req.setAttribute("listIsEmpty", listEmpty);
+
 				req.getRequestDispatcher("InvalidOtherInfo.jsp").forward(req, res);
 			} catch (ServletException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		
+
 		try {
 			req.setAttribute("otherInfo", otherInfo);
 			req.getRequestDispatcher("OtherInfo.jsp").forward(req, res);
@@ -50,8 +48,6 @@ public class OtherInfoServlet extends HttpServlet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
 
 	}
 

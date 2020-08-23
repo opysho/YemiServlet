@@ -2,39 +2,68 @@ package za.co.fnb.People;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-
+@Entity
+@Table(name = "Information")
 public class Person {
 
+	@Column(name = "surname")
 	private String surname;
+	@Column(name = "first_name")
 	private String firstName;
+	@Column(name = "id_number")
 	private Long identityNumber;
+	@Column(name = "date_of_birth")
 	private String dateOfBirth;
+	@Column(name = "age")
 	private int age;
+	@Column(name = "sex")
 	private String sex;
+	@Column(name = "address")
 	private String address;
+	@Column(name = "email")
 	private String email;
+	@Column(name = "phone_number")
 	private String phoneNumber;
+	@Column(name = "school_attended")
 	private String previousSchool;
+	@Column(name = "grade_completed")
 	private String gradeCompleted;
+	@Column(name = "grade_apply")
 	private String grade;
+	@Column(name = "subject1")
 	private String subject1;
+	@Column(name = "subject2")
 	private String subject2;
+	@Column(name = "subject3")
 	private String subject3;
+	@Column(name = "subject4")
 	private String subject4;
+	@Column(name = "subject5")
 	private String subject5;
+	@Column(name = "guardian_fullnames")
 	private String guardianFullnames;
+	@Column(name = "guardian_address")
 	private String guardianAddress;
+	@Column(name = "guardian_phonenumber")
 	private String guardianPhoneNumber;
+	@Column(name = "position")
 	private String post;
+	@Id
+	@Column(name = "personal_number")
 	private String accessNumber;
+	@Column(name = "password")
 	private String password;
 
 	public Person(String surname, String firstName, Long identityNumber, String dateOfBirth, int age, String sex,
 			String address, String email, String phoneNumber, String previousSchool, String gradeCompleted,
 			String grade, String subject1, String subject2, String subject3, String subject4, String subject5,
-			String guardianFullnames, String guardianAddress, String guardianPhoneNumber, String post, String accessNumber,
-			String password) {
+			String guardianFullnames, String guardianAddress, String guardianPhoneNumber, String post,
+			String accessNumber, String password) {
 		super();
 		this.surname = surname;
 		this.firstName = firstName;
@@ -62,10 +91,9 @@ public class Person {
 	}
 
 	public Person() {
-		
+
 	}
-	
-	
+
 	public String getSurname() {
 		return surname;
 	}
@@ -252,14 +280,14 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Surname = " + surname + ", First Name = " + firstName + ", Identity Number = " + identityNumber
-				+ ", Date Of Birth = " + dateOfBirth + ", Age = " + age + ", Sex = " + sex + ", Address = " + address + ", Email = "
-				+ email + ", Phone Number = " + phoneNumber + ", Previous School Attended= " + previousSchool + ", Grade Completed = "
-				+ gradeCompleted + ", Present Grade = " + grade + ", Subject = " + subject1 + ", Subject = " + subject2
-				+ ", Subject = " + subject3 + ", Subject = " + subject4 + ", Subject = " + subject5
-				+ ", Guardian Full names = " + guardianFullnames + ", Guardian Address = " + guardianAddress
-				+ ", Guardian PhoneNumber = " + guardianPhoneNumber + ", Post = " + post + ", Access Number = " + accessNumber
-				+ ", Password = " + password + "]";
+		return "Surname = " + surname + ", \nFirst Name = " + firstName + ", \nIdentity Number = " + identityNumber
+				+ ", Date Of Birth = " + dateOfBirth + ", Age = " + age + ", Sex = " + sex + ", Address = " + address
+				+ ", Email = " + email + ", Phone Number = " + phoneNumber + ", Previous School Attended= "
+				+ previousSchool + ", Grade Completed = " + gradeCompleted + ", Present Grade = " + grade
+				+ ", Subject = " + subject1 + ", Subject = " + subject2 + ", Subject = " + subject3 + ", Subject = "
+				+ subject4 + ", Subject = " + subject5 + ", Guardian Full names = " + guardianFullnames
+				+ ", Guardian Address = " + guardianAddress + ", Guardian PhoneNumber = " + guardianPhoneNumber
+				+ ", Post = " + post + ", Access Number = " + accessNumber + ", Password = " + password ;
 	}
 
 	@Override
@@ -292,7 +320,7 @@ public class Person {
 				&& Objects.equals(subject3, other.subject3) && Objects.equals(subject4, other.subject4)
 				&& Objects.equals(subject5, other.subject5) && Objects.equals(surname, other.surname);
 	}
-	
+
 	public boolean logIn(String accessNumber, String password, Person person) {
 		if (accessNumber.trim().equals(person.accessNumber) && password.trim().equals(person.getPassword())) {
 			return true;
